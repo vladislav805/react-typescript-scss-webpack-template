@@ -1,0 +1,27 @@
+{
+    "extends": "stylelint-config-standard",
+    "ignoreFiles": ["**/*.js", "**/*.ts", "**/*.tsx"],
+    "rules": {
+        "indentation": [4, {
+            "except": ["value"],
+            "ignore": ["value"],
+            "severity": "error"
+        }],
+        "max-empty-lines": 1,
+        "block-no-empty": [true, {
+            "severity": "warning"
+        }],
+        "color-hex-case": "lower",
+        "color-hex-length": "long",
+        "linebreaks": "unix",
+        "declaration-empty-line-before": null,
+        "rule-empty-line-before": ["always-multi-line", {
+            "severity": "error",
+            "ignore": ["inside-block"]
+        }],
+        "number-leading-zero": "never",
+        "at-rule-no-unknown": [true, {
+            "ignoreAtRules": ["function", "if", "each", "include", "mixin"]
+        }]
+    }
+}
