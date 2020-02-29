@@ -24,8 +24,16 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                use: [
+                    {
+                        loader: require.resolve('awesome-typescript-loader'),
+                        options: {
+                            useBabel: true,
+                        },
+                    },
+                ],
                 exclude: /node_modules/,
+
             },
             {
                 test: /\.s?css$/i,
@@ -59,6 +67,10 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
+        }),
         new webpack.EnvironmentPlugin({
             VERSION: process.env.npm_package_version,
         }),
