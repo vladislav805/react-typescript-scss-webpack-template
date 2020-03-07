@@ -10,6 +10,7 @@ const mode = isProduction ? 'production' : 'development';
 
 module.exports = {
     mode,
+    target: 'web',
 
     entry: {
         main: path.resolve('src', 'index.tsx'),
@@ -17,7 +18,7 @@ module.exports = {
 
     output: {
         path: path.resolve('dist'),
-        filename: '[name].js',
+        filename: 'static/js/[name].js',
     },
 
     module: {
@@ -69,14 +70,14 @@ module.exports = {
     plugins: [
         new webpack.LoaderOptionsPlugin({
             minimize: true,
-            debug: false
+            debug: false,
         }),
         new webpack.EnvironmentPlugin({
             VERSION: process.env.npm_package_version,
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css',
+            filename: 'static/css/[name].css',
+            chunkFilename: 'static/css/[id].css',
         }),
         new HtmlWebpackPlugin({
             template: path.resolve('public', 'index.html'),
@@ -86,6 +87,7 @@ module.exports = {
         }),
     ],
 
+    devtool: '#sourcemap',
     devServer: {
         contentBase: path.resolve('dist'),
         host: '0.0.0.0',
