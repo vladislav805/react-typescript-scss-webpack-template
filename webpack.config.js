@@ -3,21 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-
-const progressLineSymbols = ['▏','▎','▍','▌','▋','▊','▉', '█'];
-const getProgressLine = length => !isProduction ? () => {} : percent => {
-    if (percent === 1) {
-        process.stdout.clearLine(0);
-        process.stdout.write('\rSuccessfully completed')
-        return;
-    }
-
-    const full = ~~(percent * length);
-    const chapter = ~~(1 / length * progressLineSymbols.length);
-
-    let str = '█'.repeat(full) + progressLineSymbols[chapter] + ' '.repeat(Math.max(length - full - 1, 0));
-    process.stdout.write(`\r[${str}] ${~~(percent * 100)}%`);
-};
+// const WebpackNotifierPlugin = require('webpack-notifier');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -41,13 +27,8 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use: [
-                    {
-                        loader: require.resolve('awesome-typescript-loader'),
-                        options: {
-                            useBabel: true,
-                            silent: isProduction,
-                        },
-                    },
+                    'babel-loader',
+                    'ts-loader',
                 ],
                 exclude: /node_modules/,
 
@@ -75,9 +56,11 @@ module.exports = {
 
     optimization: {
         minimize: isProduction,
-        minimizer: [new TerserPlugin({
-            extractComments: false,
-        })],
+        minimizer: [
+            new TerserPlugin({
+                extractComments: false,
+            })
+        ],
     },
 
     externals: {
@@ -86,7 +69,7 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.ProgressPlugin(getProgressLine(process.stdout.columns - 7)),
+        // new WebpackNotifierPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false,
@@ -106,7 +89,7 @@ module.exports = {
         }),
     ],
 
-    devtool: '#sourcemap',
+    devtool: 'source-map',
     devServer: {
         contentBase: path.resolve('dist'),
         host: '0.0.0.0',
