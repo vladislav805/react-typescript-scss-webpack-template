@@ -1,10 +1,10 @@
 import * as React from 'react';
-import './App.scss';
+import styles from './App.scss';
 
 export default class App extends React.Component<unknown, unknown> {
-    render() {
+    render(): JSX.Element {
         return (
-            <p>Hello, world!</p>
+            <p className={styles['app-text']}>Hello, world!</p>
         );
     }
 }
