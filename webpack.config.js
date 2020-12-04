@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-// const WebpackNotifierPlugin = require('webpack-notifier');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -65,7 +64,7 @@ module.exports = {
         minimizer: [
             new TerserPlugin({
                 extractComments: false,
-            })
+            }),
         ],
     },
 
