@@ -1,7 +1,13 @@
-p {
+.App {
     text-align: center;
-}
 
-.app-text {
-    color: red;
+    &-Text {
+        color: red;
+    }
+
+    &-Button {
+        font-size: 20px;
+        line-height: 1.5;
+        padding: 0 1rem;
+    }
 }

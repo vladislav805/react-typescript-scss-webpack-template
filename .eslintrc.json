@@ -2,13 +2,10 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
-
     "parser": "@typescript-eslint/parser",
-
     "parserOptions": {
         "project": "./tsconfig.json",
         "tsconfigRootDir": ".",
@@ -17,30 +14,36 @@
             "jsx": true
         }
     },
-
     "env": {
         "browser": true,
         "es6": true,
         "jest": true
     },
-
-    "plugins": [ "@typescript-eslint" ],
-
-    "settings": {
-        "react": {
-            "version": "16.13"
-        }
-    },
-
+    "plugins": ["@typescript-eslint"],
     "globals": {
         "document": "readonly",
         "navigator": "readonly",
         "window": "readonly"
     },
-
     "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/interface-name-prefix": "off",
-        "@typescript-eslint/no-empty-interface": "off"
+        "@typescript-eslint/indent": ["error", 4, { "SwitchCase": 1 }],
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-shadow": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/consistent-type-imports": "warn",
+        "@typescript-eslint/no-inferrable-types": "off"
+    },
+    "settings": {
+        "react": {
+            "version": "17.0.2"
+        },
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.config.js"
+            }
+        }
     }
 }

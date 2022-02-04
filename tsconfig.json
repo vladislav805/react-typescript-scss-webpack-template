@@ -5,9 +5,15 @@
         "moduleResolution": "node",
         "target": "esnext",
         "sourceMap": true,
+        "esModuleInterop": true,
         "lib": ["dom", "es6"],
         "noImplicitReturns": false,
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        "noImplicitOverride": true,
+        "baseUrl": "src",
+        "paths": {
+            "@components/*": ["components/*"]
+        }
     },
     "include": [
         "src/**/*"
