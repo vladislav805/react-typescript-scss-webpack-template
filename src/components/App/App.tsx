@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import styles from './App.scss';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
     const [count, setCount] = React.useState<number>(0);
 
     const onIncrement = React.useCallback(() => setCount(count + 1), [count]);
@@ -20,5 +20,3 @@ const App: React.FC = () => {
         </div>
     );
 };
-
-export default App;
