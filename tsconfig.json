@@ -11,8 +11,11 @@
         "noImplicitAny": true,
         "noImplicitOverride": true,
         "baseUrl": "src",
+        "strict": true,
+        "alwaysStrict": true,
         "paths": {
-            "@components/*": ["components/*"]
+            "@components/*": ["components/*"],
+            "@lib/*": ["lib/*"]
         }
     },
     "include": [

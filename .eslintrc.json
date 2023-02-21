@@ -26,6 +26,30 @@
         "window": "readonly"
     },
     "rules": {
+        "arrow-parens": "off",
+        "class-methods-use-this": "off",
+        "default-case": "off",
+        "implicit-arrow-linebreak": "off",
+        "indent": ["error", 4, {"SwitchCase": 1}],
+        "max-len": ["warn", 140],
+        "no-alert": "off",
+        "no-await-in-loop": "off",
+        "no-bitwise": "off",
+        "no-continue": "off",
+        "no-floating-decimal": "off",
+        "no-confusing-arrow": "off",
+        "no-multi-spaces": "error",
+        "no-restricted-syntax": "off",
+        "no-param-reassign": "off",
+        "no-plusplus": "off",
+        "no-underscore-dangle": "off",
+        "object-curly-newline": "off",
+
+        "react/jsx-filename-extension": "off",
+        "import/extensions": "off",
+        "import/prefer-default-export": "off",
+        "import/no-named-as-default-member": "off",
+
         "@typescript-eslint/interface-name-prefix": "off",
         "@typescript-eslint/indent": ["error", 4, { "SwitchCase": 1 }],
         "@typescript-eslint/no-empty-interface": "off",
@@ -38,7 +62,7 @@
     },
     "settings": {
         "react": {
-            "version": "17.0.2"
+            "version": "18.2.0"
         },
         "import/resolver": {
             "webpack": {

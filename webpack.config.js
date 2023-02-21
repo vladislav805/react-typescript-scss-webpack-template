@@ -41,12 +41,7 @@ module.exports = {
                     isProduction
                         ? MiniCssExtractPlugin.loader
                         : 'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                        },
-                    },
+                    'css-loader',
                     'sass-loader',
                 ],
             },
