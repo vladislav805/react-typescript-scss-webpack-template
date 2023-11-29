@@ -5,9 +5,10 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
+    "ignorePatterns": ["**/*.js"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": "./tsconfig.json",
+        "project": ["./tsconfig.json"],
         "tsconfigRootDir": ".",
         "ecmaFeatures": {
             "modules": true,
@@ -44,7 +45,10 @@
         "no-plusplus": "off",
         "no-underscore-dangle": "off",
         "object-curly-newline": "off",
+        "quotes": [2, "single", { "avoidEscape": true }],
+        "quote-props": ["error", "as-needed"],
 
+        "react/display-name": "off",
         "react/jsx-filename-extension": "off",
         "import/extensions": "off",
         "import/prefer-default-export": "off",

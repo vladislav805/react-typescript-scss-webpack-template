@@ -23,15 +23,7 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            cacheDirectory: true,
-                        },
-                    },
-                    'ts-loader',
-                ],
+                use: 'swc-loader',
                 exclude: /node_modules/,
             },
             {
