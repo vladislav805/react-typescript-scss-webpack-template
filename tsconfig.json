@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "jsx": "preserve",
+        "jsx": "react",
         "module": "esnext",
         "moduleResolution": "node",
         "target": "esnext",
@@ -10,9 +10,11 @@
         "noImplicitReturns": false,
         "noImplicitAny": true,
         "noImplicitOverride": true,
+        "isolatedModules": true,
         "baseUrl": "src",
         "strict": true,
         "alwaysStrict": true,
+        "verbatimModuleSyntax": true,
         "paths": {
             "@components/*": ["components/*"],
             "@lib/*": ["lib/*"]

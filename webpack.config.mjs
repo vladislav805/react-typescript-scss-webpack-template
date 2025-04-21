@@ -1,23 +1,23 @@
-const path = require('path');
-const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import { resolve } from 'node:path';
+import webpack from 'webpack';
+import TerserPlugin from 'terser-webpack-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 const mode = isProduction ? 'production' : 'development';
 
-module.exports = {
+export default {
     mode,
     target: 'web',
     entry: {
-        main: path.resolve('src', 'index.tsx'),
+        main: resolve('src', 'index.tsx'),
     },
     output: {
-        path: path.resolve('dist'),
-        filename: 'static/js/[name].js',
+        path: resolve('dist'),
+        filename: './static/[name].js',
     },
     module: {
         rules: [
@@ -70,11 +70,11 @@ module.exports = {
             VERSION: process.env.npm_package_version,
         }),
         new MiniCssExtractPlugin({
-            filename: 'static/css/[name].css?ncrnd=[contenthash:8]',
-            chunkFilename: 'static/css/[id].css',
+            filename: 'static/[name].css?ncrnd=[contenthash:8]',
+            chunkFilename: './static/[id].css',
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve('public', 'index.html'),
+            template: resolve('public', 'index.html'),
             chunks: ['main'],
             minify: true,
             filename: 'index.html',
@@ -88,7 +88,7 @@ module.exports = {
         allowedHosts: 'all',
         hot: true,
         static: {
-            directory: path.resolve('dist'),
+            directory: resolve('dist'),
         },
         client: {
             overlay: {
